@@ -108,6 +108,10 @@ _G.Settings = {
     local Teleport = Library:CreateTab('Teleports')
     
     Teleport:Label('Teleports')
+    Teleport:Button('Spawn', function()
+        spawnArea()
+    end)
+
     Teleport:Button('Silver 1 Island', function()
         Silver1()
     end)
@@ -120,9 +124,18 @@ _G.Settings = {
         Diamond1()
     end)
 
+    Teleport:Button('Eliete 1 Island', function()
+        Elite1()
+    end)
+
+    Teleport:Button('Heaven Area', function()
+        Heaven()
+    end)
+
     Teleport:Button('LeaderBoards', function()
         Leaderboard()
     end)
+
     
     --FUNCTIONS--
     function AutoTrainFist()
@@ -196,4 +209,16 @@ _G.Settings = {
     
     function Leaderboard()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1096, 19, -856)
+    end
+
+    function spawnArea()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1286,-37,-85)
+    end
+
+    function Elite1()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(139, -61,-3290)
+    end
+
+    function Heaven()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1774, -136,-633)
     end
