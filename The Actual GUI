@@ -1,0 +1,163 @@
+_G.Settings = {
+['Name'] = 'Coreys GUI',
+['Intro'] = true,
+['Keybind'] = 'G'
+}
+
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/QPehPJ6m", true))()
+
+
+local Tab1 = Library:CreateTab('Tactical')
+Tab1:Label('Main Gui Area')
+Tab1:Button('Half Skill Cooldown (Doesnt Work yet)', function()
+    print(bool)
+end)
+
+Tab1:Button('OPInvisScript', function()
+    OPInvisScript()
+end)
+
+Tab1:Button('Respawn', function()
+    Respawn()
+end)
+
+
+---------------------------------
+local Train = Library:CreateTab('Training')
+
+
+Train:Label('Stregnth')
+Train:Toggle('Auto Strength', false, function(bool)
+print(bool)
+if bool == true then
+    _G.loop = true 
+    while _G.loop == true do
+        wait()
+        AutoTrainFist()
+    end
+elseif bool == false then
+    _G.loop = false
+end
+end)
+
+Train:Label('Body')
+Train:Toggle('Auto Body', false, function(bool)
+print(bool)
+if bool == true then
+    _G.loop2 = true 
+    while _G.loop2 == true do
+        wait()
+        AutoTrainEndurance()
+    end
+elseif bool == false then
+    _G.loop2 = false
+end
+end)
+
+Train:Label('Wisdom')
+Train:Toggle('Auto Wisdom', false, function(bool)
+print(bool)
+if bool == true then
+    _G.loop3 = true 
+    while _G.loop3 == true do
+        wait()
+        AutoTrainPsychic()
+    end
+elseif bool == false then
+    _G.loop3 = false
+end
+end)
+
+Train:Label('Speed')
+Train:Toggle('Auto Speed', false, function(bool)
+print(bool)
+if bool == true then
+    _G.loop4 = true 
+    while _G.loop4 == true do
+        wait()
+        AutoTrainSpeed()
+    end
+elseif bool == false then
+    _G.loop4 = false
+end
+end)
+
+Train:Label('Agility')
+Train:Toggle('Auto Agility', false, function(bool)
+print(bool)
+if bool == true then
+    _G.loop5 = true 
+    while _G.loop5 == true do
+        wait()
+        AutoTrainAgility()
+    end
+elseif bool == false then
+    _G.loop5 = false
+end
+end)
+
+Train:Button('Split', function()
+    Split()
+end)
+
+Train:Button('AntiAfk', function()
+    AntiAfk()
+end)
+
+--FUNCTIONS--
+function AutoTrainFist()
+    local ohString1 = "Multiplier"
+    local ohString2 = "Strength"
+    game:GetService("ReplicatedStorage").Server:FireServer(ohString1, ohString2)
+end
+
+function AutoTrainEndurance()
+    local ohString1 = "Multiplier"
+    local ohString2 = "Endurance"
+    game:GetService("ReplicatedStorage").Server:FireServer(ohString1, ohString2)
+end
+
+function AutoTrainPsychic()
+    local ohString1 = "Multiplier"
+    local ohString2 = "Wisdom"
+    game:GetService("ReplicatedStorage").Server:FireServer(ohString1, ohString2)
+end
+
+function AutoTrainSpeed()
+    local ohString1 = "Multiplier"
+    local ohString2 = "Speed"
+    game:GetService("ReplicatedStorage").Server:FireServer(ohString1, ohString2)
+end
+
+function AutoTrainAgility()
+    local ohString1 = "Multiplier"
+    local ohString2 = "Agility"
+    game:GetService("ReplicatedStorage").Server:FireServer(ohString1, ohString2)
+end
+
+function OPInvisScript()
+    aidjaijdad = game.Players.LocalPlayer.Character.LowerTorso
+    aidjaijdad:Destroy()
+    game.Players.LocalPlayer.Character.UpperTorso.CFrame = CFrame.new(1623,-145,-187 )
+end
+
+function Respawn()
+    Res = game.Players.LocalPlayer.Character.HumanoidRootPart
+    Resp = game.Players.LocalPlayer.Character.Humanoid
+    Res:Destroy()
+    Resp:Destroy()
+end
+
+function Split()
+    Flop = game.Players.LocalPlayer.Character.UpperTorso.Waist
+    Flop:Destroy()
+end
+
+function AntiAfk()
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)    
+end
